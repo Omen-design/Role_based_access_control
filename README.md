@@ -1,5 +1,8 @@
 # RBAC (registration)
 - RBAC stands for Role based access control system
+-folder (RBAC)
+-main project(registration)
+-app name(app1)
 
 ## Overview
 RBAC stands for Role-Based Access Control System. This project implements an RBAC system that manages user access based on their assigned roles. The application includes three types of roles: **Admin**, **User**, and **Moderator**.
@@ -51,5 +54,51 @@ should be returned.
 To set up this project locally, please follow these steps:
 **Clone the repository**:
    ```bash
-   git clone https://github.com/Omen-design/Role_based_access_control.git
+   git clone https://github.com/Omen-design/Role_based_access_control/tree/master
    cd RBAC-registration
+1. Create a virtual environment:
+ run these commands in terminal
+  python -m venv venv
+  source venv/bin/activate 
+
+2.Install dependencies:
+  Make sure you have Python installed. Then run:
+  pip install -r requirements.txt
+
+3. start a project
+ run command 
+ django-admin startproject registration
+
+4. create a new app
+  django-admin startapp app1
+
+5. make migrations 
+   python manage.py runserver
+
+6. migrate them
+   python manage.py migrate
+
+7. create superuser of dbsqlite database
+   python manage.py createsuperuser
+
+8. Start the server
+   python manage.py runserver
+
+## Steps to Test RBAC Functionality
+1. Identify User Roles and Permissions
+2. Create Test User Accounts:
+3. Define Test Scenarios:
+    Develop various test scenarios to cover both positive and negative cases:
+    Positive Scenarios: Verify that users with the correct roles can perform their designated actions (e.g., Admin can add users, Users can add APIs).
+    Negative Scenarios: Ensure that users cannot perform actions outside their permissions(e.g., a User should not be able to remove another User).
+4. Execute Test Cases:
+   For each test scenario, perform the following actions:
+   Admin Actions: Log in as an Admin and attempt to add, update, and remove users and APIs. Check if these actions succeed.
+   User Actions: Log in as a User and attempt to add, update, and view their APIs. Verify that they can only map APIs to themselves.
+   Moderator Actions: Log in as a Moderator and check if they can view APIs and monitor user activity without additional permissions.
+
+5. Monitor Access Control
+6. Check Error Handling
+7. Validate Results
+8. Document Findings
+9. Review Security Policies
